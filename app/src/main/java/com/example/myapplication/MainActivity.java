@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
+import android.Manifest;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -158,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(WEATHER_URL,params,new JsonHttpResponseHandler()
         {
-            @Override
             public void onSuccess(int statusCode, PreferenceActivity.Header[] headers, JSONObject response) {
 
                 Toast.makeText(MainActivity.this,"Data Get Success", Toast.LENGTH_SHORT).show();
@@ -167,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
                 updateUI(weatherD);
                 // super.onSuccess(statusCode, headers, response);
             }
-            @Override
             public void onFailure(int statusCode, PreferenceActivity.Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 //super.onFailure(statusCode, headers, throwable, errorResponse);
             }
